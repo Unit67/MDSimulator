@@ -27,17 +27,5 @@ public class PlayerController : MonoBehaviour
         camera.transform.eulerAngles = new Vector3(_pitch, _yaw, 0.0f);
         this.gameObject.transform.eulerAngles = new Vector3(0.0f, _yaw, 0.0f);
         #endregion
-
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(camera.transform.position, camera.transform.eulerAngles, out hit, 100))
-        {
-            Debug.Log(hit.collider.gameObject.name);
-            int XPoint = int.Parse(hit.point.x.ToString());
-            int ZPoint = int.Parse(hit.point.z.ToString());
-            GameObject.Find("Terrain Manager").GetComponent<TerrainManager>().EditTerrainHeight(XPoint, ZPoint, -1);
-            Debug.DrawLine(camera.transform.position, hit.point, Color.green);
-
-        }
     }
 }

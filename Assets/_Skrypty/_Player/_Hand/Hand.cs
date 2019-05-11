@@ -9,6 +9,8 @@ public class Hand : MonoBehaviour
     private void Update()
     {
         RaycastHit hit;
+        RaycastHit hit2;
+        Ray ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if(Physics.Raycast(transform.position,transform.forward, out hit, 10,9))
@@ -23,6 +25,21 @@ public class Hand : MonoBehaviour
                 }
                 //Debug.Log("Test");
             }
+        }
+        if(Physics.Raycast(transform.position,transform.forward,out hit2, 10))
+        {
+            int _Xpoint, _Zpoint;
+            //_Xpoint = int.Parse(hit2.point.x.ToString());
+            //_Zpoint = int.Parse(hit2.point.z.ToString());
+            _Xpoint = (int)hit2.point.x;
+            _Zpoint = (int)hit2.point.z;
+            Debug.Log("Xpoint: " + _Xpoint + "|" + "Zpoint: " + _Zpoint);
+            if(Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("MouseButton 0 is pressd");
+                GameObject.Find("Terrain Manager").GetComponent<TerrainManager>().EditTerrainHeight(_Zpoint, _Xpoint, -0.001f);
+            }
+            Debug.DrawLine(ray2.origin, hit2.point, Color.green);
         }
 
         if(Input.GetKeyDown(KeyCode.F))
