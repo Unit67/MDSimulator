@@ -1,0 +1,76 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+public class EQController : MonoBehaviour
+{
+    public GameObject EQContainer;
+    bool _ShowEQ;
+    public Text[] ItemText;
+    public RawImage[] ItemImage;
+    public MetalDetector MetalDetector;
+    private GameObject _Camera;
+    public List<GameObject> ItemsGold;
+    private void Start()
+    {
+        _Camera = GameObject.Find("Main Camera");
+    }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            _ShowEQ = !_ShowEQ;
+        }
+        switch(_ShowEQ)
+        {
+            case true:
+                {
+                    EQContainer.SetActive(_ShowEQ);
+                }
+                break;
+            case false:
+                {
+                    EQContainer.SetActive(_ShowEQ);
+                }
+                break;
+        }
+        if(_ShowEQ == true)
+        {
+            //for (int i = 0; i <= ItemsGold.Count; i++)
+            //{
+            if(ItemsGold.Count > 0)
+            {
+                ItemText[0].text = "Gold " + "(" + ItemsGold.Count + ")";
+                Debug.Log("Gold" + "(" + ItemsGold.Count + ")");
+            }
+                //for (int j = 0; j <= ItemImage.Length; j++)
+                //{
+                    //ItemImage[j].texture = 
+              //  }
+            //}
+            
+        }
+        RaycastHit hit;
+        Ray ray;
+        if(Physics.Raycast(_Camera.transform.position,_Camera.transform.forward, out hit, 10))
+        {
+            Debug.DrawLine(_Camera.transform.position, hit.point, Color.black);
+
+            for (int i = 0; i <= MetalDetector.GoldList.Length; i++)
+            {
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    if (hit.collider.name == "Gold")
+                    {
+                        ItemsGold[i] = hit.collider.gameObject;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+        }
+
+    }
+}
