@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
-    public bool NewParentIsParent = false;
+    public bool NewParentIsParent = true;
     private bool _MetalDetectorDetected = false;
     public GameObject Player;
     public MetalDetector MetalDetector;
@@ -97,20 +97,13 @@ public class Hand : MonoBehaviour
         {
             case true:
                 {
-                    if (Input.GetKeyDown(KeyCode.F))
-                    {
-                        hit.collider.gameObject.transform.position = new Vector3(Player.transform.position.x + 0.54f, Player.transform.position.y + 0.025f, Player.transform.position.z + 1.344f);
-                        NewParent(this.gameObject.transform.parent.gameObject, hit.collider.gameObject);
-                    }
+                    NewParent(this.gameObject.transform.parent.gameObject, hit.collider.gameObject);
+                    hit.collider.gameObject.transform.localPosition = new Vector3(0.54f, 0.025f, 1.344f);
                 }
                 break;
             case false:
                 {
-                    if (Input.GetKeyDown(KeyCode.F))
-                    {
-                        NewParent(GameObject.Find("Terrain"), GameObject.Find("MetalDetector"));
-
-                    }
+                    NewParent(GameObject.Find("Terrain"), GameObject.Find("MetalDetector"));
                 }
                 break;
         }
@@ -152,7 +145,7 @@ public class Hand : MonoBehaviour
                 break;
         }
     }
-    void NewParent(GameObject ObParent,GameObject ObChild)
+    public void NewParent(GameObject ObParent,GameObject ObChild)
     {
         //ObChild.transform.SetParent(ObParent.transform, true);
         ObChild.transform.parent = ObParent.transform;

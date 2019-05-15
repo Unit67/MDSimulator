@@ -33,6 +33,7 @@ public class MetalDetector : MonoBehaviour
                 else
                 {
                     PointLight.range = 0.0f;
+                    break;
                 }
             }
         }

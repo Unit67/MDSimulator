@@ -60,13 +60,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Skrypty\_Console\ConsoleController.cs" />
+    <Compile Include="Assets\_Skrypty\_GoldGenerator\GoldGenerator.cs" />
+    <Compile Include="Assets\_Skrypty\_MainMenu\MenuController.cs" />
     <Compile Include="Assets\_Skrypty\_MetalDetector\MetalDetector.cs" />
     <Compile Include="Assets\_Skrypty\_Player\_EQ\_EQ Controller\EQController.cs" />
     <Compile Include="Assets\_Skrypty\_Player\_Hand\Hand.cs" />
     <Compile Include="Assets\_Skrypty\_Player\_PlayerController\PlayerController.cs" />
     <Compile Include="Assets\_Skrypty\_Player\_PlayerController\PlayerInfo.cs" />
     <Compile Include="Assets\_Skrypty\_Player\_PlayerController\Test.cs" />
+    <Compile Include="Assets\_Skrypty\_Store\StoreController.cs" />
+    <Compile Include="Assets\_Skrypty\_Teleport\TeleportController.cs" />
     <Compile Include="Assets\_Skrypty\_Terrain\_TerrainManager\TerrainManager.cs" />
+    <None Include="Assets\Toby Fredson\Rocky Hills Environment - Light Pack\Legacy Project\Legacy Project_Read Me!.txt" />
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>C:/Users/Unit67/MDSimulator/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>

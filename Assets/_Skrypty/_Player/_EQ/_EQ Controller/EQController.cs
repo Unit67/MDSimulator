@@ -9,11 +9,23 @@ public class EQController : MonoBehaviour
     public Text[] ItemText;
     public RawImage[] ItemImage;
     public MetalDetector MetalDetector;
+    public Hand Hand;
     private GameObject _Camera;
     public List<GameObject> ItemsGold;
+    private GameObject _MetalDetectorContainer;
+    private GameObject _MetalDetector;
+    public GameObject Gold;
     private void Start()
     {
         _Camera = GameObject.Find("Main Camera");
+        if (_MetalDetectorContainer == null)
+        {
+            _MetalDetectorContainer = GameObject.Find("MetalDetector container");
+        }
+        if (_MetalDetector == null)
+        {
+            _MetalDetector = GameObject.Find("MetalDetector");
+        }
     }
     private void Update()
     {
@@ -71,6 +83,18 @@ public class EQController : MonoBehaviour
                 }
             }
         }
+    }
 
+    public void GoldButton()
+    {
+        if (ItemsGold.Count > 0)
+        {
+            Gold = ItemsGold[ItemsGold.Count - 1];
+            Hand.NewParent(_MetalDetectorContainer, Gold);
+            Gold.transform.localPosition = new Vector3(0, 0, 0);
+            Gold.transform.localEulerAngles = new Vector3(0, 90, 0);
+            Gold = null;
+            ItemsGold.RemoveAt(ItemsGold.Count - 1);
+        }
     }
 }

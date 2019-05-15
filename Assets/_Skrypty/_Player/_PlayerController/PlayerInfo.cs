@@ -5,17 +5,17 @@ using UnityEngine.UI;
 public class PlayerInfo : MonoBehaviour
 {
     public Text MoneyText;
-    public int Money;
+    public int Money = 0;
     /*public enum PlayerInfoEnum
     {
         Health = 1,
         Desire,
         Money = 100
     }*/
-
-    private void Update()
+    public void AddMoney(int AddMoney)
     {
+        Money += AddMoney;
         MoneyText.text = "Money: " + Money;
+        Debug.Log("money added: " + AddMoney);
     }
-
 }
