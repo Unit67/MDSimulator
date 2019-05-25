@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
-    public bool NewParentIsParent = true;
-    private bool _MetalDetectorDetected = false;
+    public bool NewParentIsParent = false;
+    public bool MetalDetectorDetected = false;
     public GameObject Player;
     public MetalDetector MetalDetector;
     public EQController EQController;
@@ -58,62 +58,95 @@ public class Hand : MonoBehaviour
                     //}
                 }
             }
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                if (hit.collider.gameObject.name == "MetalDetector" || hit.collider.gameObject.name == "metaldetector")
+                    NewParentIsParent = !NewParentIsParent;
+            }
             if (hit.collider.name == "MetalDetector")
             {
-                _MetalDetectorDetected = true;
+                MetalDetectorDetected = true;
             }
             else
             {
-                _MetalDetectorDetected = false;
+                MetalDetectorDetected = false;
             }
-        }
-        if(Physics.Raycast(transform.position,transform.forward,out hit2,10))
-        {
-            int _Xpoint, _Zpoint;
-            //_Xpoint = int.Parse(hit2.point.x.ToString());
-            //_Zpoint = int.Parse(hit2.point.z.ToString());
-            _Xpoint = (int)hit2.point.x;
-            _Zpoint = (int)hit2.point.z;
-            //Debug.Log("Xpoint: " + _Xpoint + "|" + "Zpoint: " + _Zpoint);
-            if (_MetalDetectorDetected == false)
+            if (hit.collider.gameObject.name == null)
             {
-                if (Input.GetMouseButton(0))
+                //Debug.Log("Set new parent");
+            }
+            else
+            {
+                if(hit.collider.gameObject.name == "MetalDetector")
                 {
-                    Debug.Log("MouseButton 0 is pressd");
-
-                    //if(hit2.collider.name != "Terrain")
-                    GameObject.Find("Terrain Manager").GetComponent<TerrainManager>().EditTerrainHeight(_Zpoint, _Xpoint, -0.001f);
+                    if(Input.GetKeyDown(KeyCode.F))
+                    {
+                        NewParent(this.gameObject.transform.parent.gameObject, _MetalDetector);
+                        hit.collider.gameObject.transform.localPosition = new Vector3(0.54f, 0.025f, 1.344f);
+                    }
                 }
-                Debug.DrawLine(ray2.origin, hit2.point, Color.green);
             }
         }
-
-        if(Input.GetKeyDown(KeyCode.F))
+        if(MetalDetectorDetected == false)
         {
-            NewParentIsParent = !NewParentIsParent;
+            if(Physics.Raycast(transform.position,transform.forward,out hit2,10))
+            {
+                int _Xpoint, _Zpoint;
+                //_Xpoint = int.Parse(hit2.point.x.ToString());
+                //_Zpoint = int.Parse(hit2.point.z.ToString());
+                _Xpoint = (int)hit2.point.x;
+                _Zpoint = (int)hit2.point.z;
+                //Debug.Log("Xpoint: " + _Xpoint + "|" + "Zpoint: " + _Zpoint);
+                if (MetalDetectorDetected == false)
+                {
+                    if (Input.GetMouseButton(0))
+                    {
+                        Debug.Log("MouseButton 0 is pressd");
+                        Debug.Log("_Zpoint: " + _Zpoint + "_Xpoint: " + _Xpoint);
+                        //if(hit2.collider.name != "Terrain")
+                        GameObject.Find("Terrain Manager").GetComponent<TerrainManager>().EditTerrainHeight(_Zpoint, _Xpoint, -0.001f);
+                    }
+                    Debug.DrawLine(ray2.origin, hit2.point, Color.green);
+                }
+            }
         }
-
+        
         switch (NewParentIsParent)
         {
             case true:
                 {
-                    NewParent(this.gameObject.transform.parent.gameObject, hit.collider.gameObject);
-                    hit.collider.gameObject.transform.localPosition = new Vector3(0.54f, 0.025f, 1.344f);
+                    if(hit.collider.gameObject.name == null)
+                    {
+                    }
+                    else
+                    {
+                        if(hit.collider.gameObject.name == "MetalDetector")
+                        {
+                            NewParent(this.gameObject.transform.parent.gameObject, _MetalDetector);
+                            hit.collider.gameObject.transform.localPosition = new Vector3(0.54f, 0.025f, 1.344f);
+                        }
+                    }
                 }
                 break;
             case false:
                 {
-                    NewParent(GameObject.Find("Terrain"), GameObject.Find("MetalDetector"));
+                    if(Input.GetKeyDown(KeyCode.F))
+                    {
+                        if(hit.collider.name != "Terrain")
+                        {
+                            NewParent(null, _MetalDetector);
+                        }
+                    }
                 }
                 break;
         }
-        switch(_MetalDetectorDetected)
+        switch(MetalDetectorDetected)
         {
             case true:
                 {
                     if (Input.GetMouseButton(0))
                     {
-                        NewParent(this.gameObject, hit.collider.gameObject);
+                        NewParent(this.gameObject, _MetalDetector);
                         //NewParentIsParent = true;
                     }
                 }

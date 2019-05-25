@@ -95,7 +95,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Optimized Leaf Material
-  m_Shader: {fileID: 10605, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: d8506eb42ac6457498adb900d6e01696, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -106,6 +106,18 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_35944F97:
+        m_Texture: {fileID: 2800000, guid: 34a736a138cac874e92f1e4f6dd103e8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_7CC6A62D:
+        m_Texture: {fileID: 2800000, guid: 34a736a138cac874e92f1e4f6dd103e8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_C660F6E7:
+        m_Texture: {fileID: 2800000, guid: 07010dcd4d396b04ea14a4cd95cb91c1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpSpecMap:
         m_Texture: {fileID: 2800000, guid: 747457fe740ee8c4a8785deb5d9cfe39, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -141,7 +153,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Optimized Bark Material
-  m_Shader: {fileID: 10604, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 9fc4eda48cda84a44a700b669a74c256, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -152,6 +164,18 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_62912158:
+        m_Texture: {fileID: 2800000, guid: b5d558679274faf4cb587383e6d523e7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_8E05BE0F:
+        m_Texture: {fileID: 2800000, guid: 10a53b2388e96ab4ab520c568499ab3e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_DF3539F9:
+        m_Texture: {fileID: 2800000, guid: 4aa6f958746d2cc4184ebd24752acc03, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpSpecMap:
         m_Texture: {fileID: 2800000, guid: 747457fe740ee8c4a8785deb5d9cfe39, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -165,6 +189,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_7DF6E158: 0
     - _Cutoff: 0.3
     - _SquashAmount: 1
     m_Colors:

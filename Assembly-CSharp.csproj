@@ -60,6 +60,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Skrypty\_AnimationController\_AnimationController\AnimationController.cs" />
+    <Compile Include="Assets\_Skrypty\_AnimationController\_TrunkInfo\TrunkInfo.cs" />
     <Compile Include="Assets\_Skrypty\_Console\ConsoleController.cs" />
     <Compile Include="Assets\_Skrypty\_GoldGenerator\GoldGenerator.cs" />
     <Compile Include="Assets\_Skrypty\_MainMenu\MenuController.cs" />

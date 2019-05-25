@@ -26,6 +26,7 @@ public class EQController : MonoBehaviour
         {
             _MetalDetector = GameObject.Find("MetalDetector");
         }
+        EQContainer = GameObject.Find("EQ Container");
     }
     private void Update()
     {
@@ -68,7 +69,7 @@ public class EQController : MonoBehaviour
         {
             Debug.DrawLine(_Camera.transform.position, hit.point, Color.black);
 
-            for (int i = 0; i <= MetalDetector.GoldList.Length; i++)
+            /* for (int i = 0; i <= MetalDetector.GoldList.Length; i++)
             {
                 if (Input.GetKeyDown(KeyCode.F))
                 {
@@ -81,7 +82,7 @@ public class EQController : MonoBehaviour
                         break;
                     }
                 }
-            }
+            }*/
         }
     }
 

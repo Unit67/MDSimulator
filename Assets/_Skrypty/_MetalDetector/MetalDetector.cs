@@ -14,6 +14,7 @@ public class MetalDetector : MonoBehaviour
         if (Physics.Raycast(transform.position, -transform.up, out Hit, 10, 9))
         {
             Debug.DrawLine(transform.position, Hit.point, Color.green);
+            Debug.Log(Hit.collider.name + " Detected");
             HitColliderName = Hit.collider.gameObject.name;
         }
         else

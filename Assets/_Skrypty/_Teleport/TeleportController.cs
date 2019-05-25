@@ -9,7 +9,7 @@ public class TeleportController : MonoBehaviour
     public InputField XInputField,YInputField,ZInputField;
     public Text ErrorText;
     public GameObject TeleportContainer;
-    private GameObject _Player;
+    public GameObject _Player;
     private float _X, _Y, _Z;
     private bool _TeleportContainerShow = false;
     private void Start()

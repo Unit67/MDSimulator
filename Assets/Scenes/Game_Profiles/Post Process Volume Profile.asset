@@ -70,7 +70,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 9.26
+    value: 35.27
   threshold:
     overrideState: 1
     value: 2.2
@@ -246,7 +246,7 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.264
+    value: 0.389
   smoothness:
     overrideState: 1
     value: 0.2
@@ -342,7 +342,7 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: 17
+    value: 39
   tint:
     overrideState: 1
     value: 0
@@ -1655,7 +1655,7 @@ MonoBehaviour:
     value: 1
   focusDistance:
     overrideState: 1
-    value: 3.58
+    value: 8
   aperture:
     overrideState: 0
     value: 5.6
@@ -1677,7 +1677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
   m_Name: MotionBlur
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
