@@ -85,7 +85,10 @@ public class EQController : MonoBehaviour
             }*/
         }
     }
-
+    public void UpdateGoldList()
+    {
+        ItemText[0].text = "Gold " + "(" + ItemsGold.Count + ")";
+    }
     public void GoldButton()
     {
         if (ItemsGold.Count > 0)

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 371332083491915696}
   - component: {fileID: 371332083491915708}
   - component: {fileID: 371332083491915703}
+  - component: {fileID: 2952070884988851393}
   - component: {fileID: 371332083491915702}
   - component: {fileID: 371332083491915699}
   - component: {fileID: 371332083491915709}
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoneyText: {fileID: 0}
+  DesireText: {fileID: 0}
   Money: 0
 --- !u!65 &371332083491915703
 BoxCollider:
@@ -113,6 +115,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2952070884988851393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371332083491915701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1d3b5c416282e46a2867302e5e0f14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hand: {fileID: 371332084599986182}
+  StoreLocation: {x: 0, y: 0, z: 0}
+  Player: {fileID: 371332083491915701}
 --- !u!114 &371332083491915702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,7 +143,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 5
+  MaxJump: 10
+  Dead: 0
+  DeadToggle: {fileID: 0}
+  _TimeLeftSpeed: 5
   camera: {fileID: 371332084599986202}
+  CharacterController: {fileID: 0}
+  Playerinfo: {fileID: 0}
+  DeadContainer: {fileID: 0}
+  EQController: {fileID: 0}
+  TextBlueScreen: {fileID: 0}
+  ViewFinderText: {fileID: 0}
+  Hand: {fileID: 0}
 --- !u!143 &371332083491915699
 CharacterController:
   m_ObjectHideFlags: 0
@@ -174,6 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoneyText: {fileID: 0}
+  DesireText: {fileID: 0}
   Money: 0
 --- !u!1 &371332083977868308
 GameObject:
@@ -346,6 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NewParentIsParent: 0
+  MetalDetectorDetected: 0
   Player: {fileID: 371332083491915701}
   MetalDetector: {fileID: 0}
   EQController: {fileID: 0}

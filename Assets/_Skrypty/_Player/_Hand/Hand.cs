@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
+    public RaycastHit hit;
+    public RaycastHit hit2;
     public bool NewParentIsParent = false;
     public bool MetalDetectorDetected = false;
     public GameObject Player;
@@ -12,6 +14,7 @@ public class Hand : MonoBehaviour
     private GameObject _MetalDetectorContainer;
     private GameObject _MetalDetector;
     private GameObject _GoldContainer;
+    public KeyCode FunctionKey = KeyCode.F;
     private void Start()
     {
         try
@@ -34,14 +37,13 @@ public class Hand : MonoBehaviour
             _MetalDetectorContainer = null;
         }
     }
-
+    
     private void Update()
     {
-        RaycastHit hit;
-        RaycastHit hit2;
         Ray ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
+        
+        
         if (Physics.Raycast(transform.position, transform.forward, out hit, 10, 9))
         {
             Debug.DrawLine(ray.origin, hit.point, Color.blue);
@@ -58,18 +60,18 @@ public class Hand : MonoBehaviour
                     //}
                 }
             }
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(FunctionKey))
             {
                 if (hit.collider.gameObject.name == "MetalDetector" || hit.collider.gameObject.name == "metaldetector")
                     NewParentIsParent = !NewParentIsParent;
             }
             if (hit.collider.name == "MetalDetector")
             {
-                MetalDetectorDetected = true;
+                MetalDetectorDetected = false;
             }
             else
             {
-                MetalDetectorDetected = false;
+                MetalDetectorDetected = true;
             }
             if (hit.collider.gameObject.name == null)
             {
@@ -79,7 +81,7 @@ public class Hand : MonoBehaviour
             {
                 if(hit.collider.gameObject.name == "MetalDetector")
                 {
-                    if(Input.GetKeyDown(KeyCode.F))
+                    if(Input.GetKeyDown(FunctionKey))
                     {
                         NewParent(this.gameObject.transform.parent.gameObject, _MetalDetector);
                         hit.collider.gameObject.transform.localPosition = new Vector3(0.54f, 0.025f, 1.344f);
@@ -104,7 +106,8 @@ public class Hand : MonoBehaviour
                         Debug.Log("MouseButton 0 is pressd");
                         Debug.Log("_Zpoint: " + _Zpoint + "_Xpoint: " + _Xpoint);
                         //if(hit2.collider.name != "Terrain")
-                        GameObject.Find("Terrain Manager").GetComponent<TerrainManager>().EditTerrainHeight(_Zpoint, _Xpoint, -0.001f);
+                        GameObject.Find("Terrain Manager").GetComponent<TerrainManager>()
+                            .EditTerrainHeight(_Zpoint, _Xpoint, -0.001f);
                     }
                     Debug.DrawLine(ray2.origin, hit2.point, Color.green);
                 }
@@ -115,10 +118,7 @@ public class Hand : MonoBehaviour
         {
             case true:
                 {
-                    if(hit.collider.gameObject.name == null)
-                    {
-                    }
-                    else
+                    if(hit.collider.gameObject.name != null)
                     {
                         if(hit.collider.gameObject.name == "MetalDetector")
                         {
@@ -130,7 +130,7 @@ public class Hand : MonoBehaviour
                 break;
             case false:
                 {
-                    if(Input.GetKeyDown(KeyCode.F))
+                    if(Input.GetKeyDown(FunctionKey))
                     {
                         if(hit.collider.name != "Terrain")
                         {
@@ -153,7 +153,7 @@ public class Hand : MonoBehaviour
                 break;
             case false:
                 {
-                    if (Input.GetKeyDown(KeyCode.F))
+                    if (Input.GetKeyDown(FunctionKey))
                     {
                         if (_MetalDetector != null)
                         {

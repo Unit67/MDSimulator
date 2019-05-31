@@ -11,7 +11,7 @@ public class GoldGenerator : MonoBehaviour
         {
             GameObject GoldObject = GameObject.Instantiate(Gold);
             GoldObject.name = "Gold";
-            GoldObject.transform.position = new Vector3(Random.Range(0, 520), 8, Random.Range(0, 520));
+            GoldObject.transform.position = new Vector3(Random.Range(0, 520), Random.Range(-2,-1), Random.Range(0, 520));
         }
     }
 }

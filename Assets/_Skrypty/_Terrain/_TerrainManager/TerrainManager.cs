@@ -18,7 +18,7 @@ public class TerrainManager : MonoBehaviour
     }
     private void Update()
     {
-        _terrain = Terrain.activeTerrain;
+        //_terrain = Terrain.activeTerrain;
         //if (Camera.main.GetComponent<Hand>().NewParentIsParent == false)
         //{
          //   Terrain.activeTerrain.gameObject.layer = 0;
