@@ -5,7 +5,10 @@ using UnityEngine;
 public class TerrainManager : MonoBehaviour
 {
     public Terrain _terrain;
-    public int xBase=0 ,yBase=0;
+
+    public GameObject Player;
+    public int yRes;
+    public int xRes;
     private void Start()
     {
         RaycastHit Hit;
@@ -14,7 +17,7 @@ public class TerrainManager : MonoBehaviour
         {
             Debug.DrawLine(transform.position, Hit.point,Color.black);
         }
-        EditTerrainHeight(500,500, 0.001f);
+        //EditTerrainHeight(500,500, 0.001f);
     }
     private void Update()
     {
@@ -32,32 +35,15 @@ public class TerrainManager : MonoBehaviour
     }
 
     public void EditTerrainHeight(int X, int Z, float Y)
-    {
-        Debug.Log("Edit terrain height");
-        //int xBase = 0;
-        //int yBase = 0;
-        /*xBase = _terrain.terrainData.heightmapWidth;
-        yBase = _terrain.terrainData.heightmapHeight;
+    {   
+        yRes = _terrain.terrainData.heightmapHeight;
+        xRes = _terrain.terrainData.heightmapWidth;
+        Debug.Log(xRes + "," + yRes);
 
-        float[,] heights =_terrain.terrainData.GetHeights(xBase, yBase, 152, 152);
-        heights[X,Z] = Y;
+        float[,] heights = _terrain.terrainData.GetHeights(0, 0, xRes, yRes);
 
-        _terrain.terrainData.SetHeights(xBase, yBase, heights);
-        */
-        if(_terrain != null)
-        {
-            int xRes = _terrain.terrainData.heightmapWidth;
-            int yRes = _terrain.terrainData.heightmapHeight;
-
-            float[,] heights = _terrain.terrainData.GetHeights(0, 0, xRes, yRes);
-
-            heights[X, Z] = Y;
-
-            _terrain.terrainData.SetHeights(0, 0, heights);
-        }
-        else if(_terrain == null)
-        {
-            Debug.LogError("terrain == null");
-        }
+        heights[Z, X] = Y;
+        
+        _terrain.terrainData.SetHeights(0,0,heights);
     }
 }

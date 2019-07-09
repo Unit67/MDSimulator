@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public Toggle DeadToggle;
     public int _TimeLeftSpeed = 5;
     public GameObject camera;
+    public Terrain Terrain;
     public CharacterController CharacterController;
     public PlayerInfo Playerinfo;
     public GameObject DeadContainer;
@@ -130,7 +131,7 @@ public class PlayerController : MonoBehaviour
         ViewFinderText.transform.TransformPoint(Hand.hit.point);
         if (this.gameObject.transform.position.y < 0)
         {
-            PlayerTeleport(this.gameObject.transform.position.x, 20, this.gameObject.transform.position.z);
+            PlayerTeleport(this.gameObject.transform.position.x, Terrain.terrainData.heightmapHeight + 5, this.gameObject.transform.position.z);
         }
     }
     public void PlayerTeleport(float X, float Y, float Z)
